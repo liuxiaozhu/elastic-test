@@ -13,8 +13,7 @@ import java.net.UnknownHostException;
 @Configuration
 public class FactoryBean {
 
-
-    @Bean(name = "client")
+    @Bean(name = "esClient")
     public TransportClient getESClient() throws UnknownHostException{
 
         Settings settings = Settings.builder()
@@ -22,7 +21,6 @@ public class FactoryBean {
 
         TransportClient client = new PreBuiltTransportClient(settings)
                 .addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName("127.0.0.1"), 9300));
-
 
         return client;
     }
